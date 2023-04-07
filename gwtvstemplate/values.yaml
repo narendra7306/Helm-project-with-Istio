@@ -1,0 +1,8 @@
+gateway:
+  gwt_label: istio-ingress/ingressgateway
+  port_no: 80
+  port_name: http
+  host: "firstservice.poc.svc.cluster.local"
+  target_port: 80
+vs:
+  dest: "firstservice.poc.svc.cluster.local"

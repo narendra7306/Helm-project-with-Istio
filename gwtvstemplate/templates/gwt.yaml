@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: {{ include "demochart1.fullname" . }}
+spec:
+  selector:
+    istio: {{ .Values.gateway.gwt_label }} # use Istio default gateway implementation
+  servers:
+  - port:
+      number: {{ .Values.gateway.port_no }}
+      name: {{ .Values.gateway.port_name }}
+      protocol: HTTP
+    hosts:
+    - '*'

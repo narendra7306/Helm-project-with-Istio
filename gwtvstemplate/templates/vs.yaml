@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: {{ include "demochart1.fullname" . }}
+spec:
+  hosts:
+  - '*'
+  gateways:
+  - {{ include "demochart1.fullname" . }}
+  http:
+  - route:
+    - destination:
+        port:
+          number: 80
+        host: {{ .Values.vs.dest }}
